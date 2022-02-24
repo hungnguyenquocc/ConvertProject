@@ -2,47 +2,40 @@ function convert(){
     var hex = document.calcuform.x.value;
     if(document.getElementById("ins").value =="hexa"){
         if(document.getElementById("outs").value =="binary"){
-            document.querySelector(".in-text").textContent = 16;
-            document.querySelector(".out1").textContent = 2;
-            document.querySelector(".out2").textContent = 10;
             document.getElementById("y").textContent = hexToBin(hex);
             document.getElementById("y2").textContent = hexToDec(hex);
 
-        } else{
-            document.querySelector(".in-text").textContent = 16;
-            document.querySelector(".out1").textContent = 10;
-            document.querySelector(".out2").textContent = 2;
+        } else if(document.getElementById("ins").value =="decimal"){
             document.getElementById("y2").textContent = hexToBin(hex);
             document.getElementById("y").textContent = hexToDec(hex);
+        } else{
+            document.getElementById("y").textContent = hex;
+            document.getElementById("y2").textContent = hex;
         }
     }
     else if(document.getElementById("ins").value =="binary"){
         if(document.getElementById("outs").value =="decimal"){
-            document.querySelector(".in-text").textContent = 2;
-            document.querySelector(".out1").textContent = 10;
-            document.querySelector(".out2").textContent = 16;
             document.getElementById("y").textContent = binToDec(hex);
             document.getElementById("y2").textContent = binToHex(hex);
-        } else{
-            document.querySelector(".in-text").textContent = 16;
-            document.querySelector(".out1").textContent = 10;
-            document.querySelector(".out2").textContent = 2;
+        } else if(document.getElementById("outs").value =="hex"){
             document.getElementById("y2").textContent = binToDec(hex);
             document.getElementById("y").textContent = binToHex(hex);
         }
+        else{
+            document.getElementById("y").textContent = hex;
+            document.getElementById("y2").textContent = hex;
+        }
     }else{
         if(document.getElementById("outs").value =="binary"){
-            document.querySelector(".in-text").textContent = 10;
-            document.querySelector(".out1").textContent = 2;
-            document.querySelector(".out2").textContent = 16;
             document.getElementById("y").textContent = decToBin(hex);
             document.getElementById("y2").textContent = decToHex(hex);
-        } else{
-            document.querySelector(".in-text").textContent = 10;
-            document.querySelector(".out1").textContent = 16;
-            document.querySelector(".out2").textContent = 2;
-            document.getElementById("y2").textContent = binToDec(hex);
-            document.getElementById("y").textContent = binToHex(hex);
+        } else if(document.getElementById("outs").value =="hex"){
+            document.getElementById("y2").textContent = decToBin(hex);
+            document.getElementById("y").textContent = decToHex(hex);
+        }
+        else{
+            document.getElementById("y").textContent = hex;
+            document.getElementById("y2").textContent = hex;
         }
     }
 }

@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./main.css">
     <title>Convert</title>
 </head>
@@ -30,7 +31,7 @@
                 </div>
             </div>
             <div class="form-group">
-                 <Label for="x">Enter hex number</Label>
+                 <Label for="x" id="input-label">Enter Hex Number</Label>
                  <div class="input-group ">
                     <input type="text" id="x" name="x" class="form-control form-control-lg" required autofocus>
                     <div class="input-group__append">
@@ -44,7 +45,7 @@
                  <button type="button" class="btn btn-secondary">x Swap</button>
             </div>
             <div class="form-group">
-                <label for="y">Binary number</label>
+                <label for="y" id="out-label1">Binary number</label>
                 <div class="input-group">
                     <textarea rows="2" id="y" class="form-control form-control-lg" readonly=""></textarea>
                     <div class="input-group-append">
@@ -53,7 +54,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="y2">Decimal number</label>
+                <label for="y2" id="out-label2">Decimal number</label>
                 <div class="input-group">
                     <textarea rows="2" id="y2" class="form-control form-control-lg" readonly=""></textarea>
                     <div class="input-group-append">
@@ -64,5 +65,162 @@
         </form>
     </div>
 </body>
+<script>
+    $('#ins').on('change', function(e){
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+        if(valueSelected == 'hexa'){
+            $("#input-label").text("Enter Hex Number");
+            var out = document.getElementById("outs").value;
+            if(out == 'binary'){
+                $("#out-label1").text("Binary Number");
+                $("#out-label2").text("Decimal Number");
+                document.querySelector(".in-text").textContent = 16;
+                document.querySelector(".out1").textContent = 2;
+                document.querySelector(".out2").textContent = 10;
+            }
+            else if(out == 'decimal'){
+                $("#out-label1").text("Decimal Number");
+                $("#out-label2").text("Binary Number");
+                document.querySelector(".in-text").textContent = 16;
+                document.querySelector(".out1").textContent = 10;
+                document.querySelector(".out2").textContent = 2;
+            }
+            else{
+                $("#out-label1").text("Hex Number");
+                $("#out-label2").text("Hex Number");
+                document.querySelector(".in-text").textContent = 16;
+                document.querySelector(".out1").textContent = 16;
+                document.querySelector(".out2").textContent = 16;
+            }
+        }
+        else if(valueSelected == 'binary'){
+            $("#input-label").text("Enter Binary Number");
+            var out = document.getElementById("outs").value;
+            if(out == 'hexa'){
+                $("#out-label1").text("Hex Number");
+                $("#out-label2").text("Decimal Number");
+                document.querySelector(".in-text").textContent = 2;
+                document.querySelector(".out1").textContent = 16;
+                document.querySelector(".out2").textContent = 10;
+            }
+            else if(out == 'decimal'){
+                $("#out-label1").text("Decimal Number");
+                $("#out-label2").text("Hex Number");
+                document.querySelector(".in-text").textContent = 2;
+                document.querySelector(".out1").textContent = 10;
+                document.querySelector(".out2").textContent = 16;
+            }
+            else{
+                $("#out-label1").text("Binary Number");
+                $("#out-label2").text("Binary Number");
+                document.querySelector(".in-text").textContent = 2;
+                document.querySelector(".out1").textContent = 2;
+                document.querySelector(".out2").textContent = 2;
+            }
+        }
+        else{
+            $("#input-label").text("Enter Decimal Number");
+            var out = document.getElementById("outs").value;
+            if(out == 'hexa'){
+                $("#out-label1").text("Hex Number");
+                $("#out-label2").text("Binary Number");
+                document.querySelector(".in-text").textContent = 10;
+                document.querySelector(".out1").textContent = 16;
+                document.querySelector(".out2").textContent = 2;
+            }
+            else if(out == 'binary'){
+                $("#out-label1").text("Binary Number");
+                $("#out-label2").text("Hex Number");
+                document.querySelector(".in-text").textContent = 10;
+                document.querySelector(".out1").textContent = 2;
+                document.querySelector(".out2").textContent = 16;
+            }
+            else{
+                $("#out-label1").text("Decimal Number");
+                $("#out-label2").text("Decimal Number");
+                document.querySelector(".in-text").textContent = 10;
+                document.querySelector(".out1").textContent = 10;
+                document.querySelector(".out2").textContent = 10;
+            }
+        }
+    })
+    $('#outs').on('change', function(e){
+        var optionSelected = $("option:selected", this);
+        var valueSelected = this.value;
+        if(valueSelected == 'hexa'){
+            var ins = document.getElementById("ins").value;
+            if(ins == 'binary'){
+                $("#out-label1").text("Hex Number");
+                $("#out-label2").text("Decimal Number");
+                document.querySelector(".in-text").textContent = 2;
+                document.querySelector(".out1").textContent = 16;
+                document.querySelector(".out2").textContent = 10;
+            }
+            else if(ins == 'decimal'){
+                $("#out-label1").text("Hex Number");
+                $("#out-label2").text("Binary Number");
+                document.querySelector(".in-text").textContent = 10;
+                document.querySelector(".out1").textContent = 16;
+                document.querySelector(".out2").textContent = 2;
+            }
+            else{
+                $("#out-label1").text("Hex Number");
+                $("#out-label2").text("Hex Number");
+                document.querySelector(".in-text").textContent = 16;
+                document.querySelector(".out1").textContent = 16;
+                document.querySelector(".out2").textContent = 16;
+            }
+        }
+        else if(valueSelected == 'binary'){
+            var ins = document.getElementById("ins").value;
+            if(ins == 'hexa'){
+                $("#out-label1").text("Binary Number");
+                $("#out-label2").text("Decimal Number");
+                document.querySelector(".in-text").textContent = 16;
+                document.querySelector(".out1").textContent = 2;
+                document.querySelector(".out2").textContent = 10;
+            }
+            else if(ins == 'decimal'){
+                $("#out-label1").text("Binary Number");
+                $("#out-label2").text("Hex Number");
+                document.querySelector(".in-text").textContent = 10;
+                document.querySelector(".out1").textContent = 2;
+                document.querySelector(".out2").textContent = 16;
+            }
+            else{
+                $("#out-label1").text("Binary Number");
+                $("#out-label2").text("Binary Number");
+                document.querySelector(".in-text").textContent = 2;
+                document.querySelector(".out1").textContent = 2;
+                document.querySelector(".out2").textContent = 2;
+            }
+        }
+        else{
+            var ins = document.getElementById("ins").value;
+            if(ins == 'hexa'){
+                $("#out-label1").text("Decimal Number");
+                $("#out-label2").text("Binary Number");
+                document.querySelector(".in-text").textContent = 16;
+                document.querySelector(".out1").textContent = 10;
+                document.querySelector(".out2").textContent = 2;
+            }
+            else if(ins == 'binary'){
+                $("#out-label1").text("Decimal Number");
+                $("#out-label2").text("Hex Number");
+                document.querySelector(".in-text").textContent = 2;
+                document.querySelector(".out1").textContent = 10;
+                document.querySelector(".out2").textContent = 16;
+            }
+            else{
+                $("#out-label1").text("Decimal Number");
+                $("#out-label2").text("Decimal Number");
+                document.querySelector(".in-text").textContent = 10;
+                document.querySelector(".out1").textContent = 10;
+                document.querySelector(".out2").textContent = 10;
+            }
+        }
+    })
+</script>
 <script src="./main.js"></script>
 </html>
