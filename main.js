@@ -1,5 +1,7 @@
 function convert(){
     var hex = document.calcuform.x.value;
+    hex = hex.replace("0x","");
+    hex = hex.replace("0X","");
     if(document.getElementById("ins").value =="hexa"){
         if(document.getElementById("outs").value =="binary"){
             document.getElementById("y").textContent = hexToBin(hex);
