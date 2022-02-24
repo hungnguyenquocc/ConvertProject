@@ -7,7 +7,7 @@ function convert(){
             document.getElementById("y").textContent = hexToBin(hex);
             document.getElementById("y2").textContent = hexToDec(hex);
 
-        } else if(document.getElementById("ins").value =="decimal"){
+        } else if(document.getElementById("outs").value =="decimal"){
             document.getElementById("y2").textContent = hexToBin(hex);
             document.getElementById("y").textContent = hexToDec(hex);
         } else{
