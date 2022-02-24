@@ -42,7 +42,7 @@
             <div class="form-group">
                  <button type="button" class="btn btn-primary" onclick="convert()">= Convert</button>
                  <button type="button" class="btn btn-secondary reset" onclick="reset()">x Reset</button>
-                 <button type="button" class="btn btn-secondary">x Swap</button>
+                 <button type="button" class="btn btn-secondary" onclick="swap()">Swap</button>
             </div>
             <div class="form-group">
                 <label for="y" id="out-label1">Binary number</label>
@@ -221,6 +221,66 @@
             }
         }
     })
+    function swap(){
+        if(document.getElementById("ins").value == "hexa"){
+            $("#out-label1").text("Hex Number");
+            if(document.getElementById("outs").value == "binary"){
+                $("#input-label").text("Enter Binary Number");
+                $("#out-label2").text("Decimal Number");
+                document.getElementById("ins").value = "binary";
+                document.getElementById("outs").value = "hexa";
+                document.querySelector(".in-text").textContent = 2;
+                document.querySelector(".out1").textContent = 16;
+                document.querySelector(".out2").textContent = 10;
+            } else if(document.getElementById("outs").value == "decimal"){
+                $("#input-label").text("Enter Decimal Number");
+                $("#out-label1").text("Binary Number");
+                document.getElementById("ins").value = "decimal";
+                document.getElementById("outs").value = "hexa";
+                document.querySelector(".in-text").textContent = 10;
+                document.querySelector(".out1").textContent = 16;
+                document.querySelector(".out2").textContent = 2;
+            }
+        } else if(document.getElementById("ins").value == "binary"){
+            $("#out-label1").text("Binary Number");
+            if(document.getElementById("outs").value == "hexa"){
+                $("#input-label").text("Enter Hex Number");
+                $("#out-label2").text("Decimal Number");
+                document.getElementById("ins").value = "hexa";
+                document.getElementById("outs").value = "binary";
+                document.querySelector(".in-text").textContent = 16;
+                document.querySelector(".out1").textContent = 2;
+                document.querySelector(".out2").textContent = 10;
+            } else if(document.getElementById("outs").value == "decimal"){
+                $("#input-label").text("Enter Decimal Number");
+                $("#out-label2").text("Hex Number");
+                document.getElementById("ins").value = "decimal";
+                document.getElementById("outs").value = "binary";
+                document.querySelector(".in-text").textContent = 10;
+                document.querySelector(".out1").textContent = 2;
+                document.querySelector(".out2").textContent = 16;
+            }
+        } else{
+            $("#out-label1").text("Decimal Number");
+            if(document.getElementById("outs").value == "hexa"){
+                $("#input-label").text("Enter Hex Number");
+                $("#out-label2").text("Binary Number");
+                document.getElementById("ins").value = "hexa";
+                document.getElementById("outs").value = "decimal";
+                document.querySelector(".in-text").textContent = 16;
+                document.querySelector(".out1").textContent = 10;
+                document.querySelector(".out2").textContent = 2;
+            } else if(document.getElementById("outs").value == "binary"){
+                $("#input-label").text("Enter Binary Number");
+                $("#out-label2").text("Hex Number");
+                document.getElementById("ins").value = "binary";
+                document.getElementById("outs").value = "decimal";
+                document.querySelector(".in-text").textContent = 2;
+                document.querySelector(".out1").textContent = 10;
+                document.querySelector(".out2").textContent = 16;
+            }
+        }
+    }
 </script>
 <script src="./main.js"></script>
 </html>

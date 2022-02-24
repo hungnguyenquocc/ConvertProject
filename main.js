@@ -16,10 +16,11 @@ function convert(){
         }
     }
     else if(document.getElementById("ins").value =="binary"){
+        hex = hex.toString();
         if(document.getElementById("outs").value =="decimal"){
             document.getElementById("y").textContent = binToDec(hex);
             document.getElementById("y2").textContent = binToHex(hex);
-        } else if(document.getElementById("outs").value =="hex"){
+        } else if(document.getElementById("outs").value =="hexa"){
             document.getElementById("y2").textContent = binToDec(hex);
             document.getElementById("y").textContent = binToHex(hex);
         }
@@ -27,11 +28,12 @@ function convert(){
             document.getElementById("y").textContent = hex;
             document.getElementById("y2").textContent = hex;
         }
-    }else{
+    } 
+    else{
         if(document.getElementById("outs").value =="binary"){
             document.getElementById("y").textContent = decToBin(hex);
             document.getElementById("y2").textContent = decToHex(hex);
-        } else if(document.getElementById("outs").value =="hex"){
+        } else if(document.getElementById("outs").value =="hexa"){
             document.getElementById("y2").textContent = decToBin(hex);
             document.getElementById("y").textContent = decToHex(hex);
         }
@@ -45,6 +47,9 @@ function convert(){
 document.querySelector('.reset').addEventListener("click",() =>{
     document.getElementById("y").textContent = "";
     document.getElementById("y2").textContent = "";
+    $("#out-label1").text("Binary Number");
+    $("#out-label2").text("Decimal Number");
+    $("#input-label").text("Enter Hex Number");
 })
 
 
