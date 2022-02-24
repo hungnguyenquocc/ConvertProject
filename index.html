@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./main.css">
+    <title>Convert</title>
+</head>
+<body>
+    <div class="main">
+        <form action="" id="cacul" name="calcuform">
+            <div class="main-select">
+                <div class="form-group col">
+                    <Label for="unit1">From</Label>
+                    <select name="ins" id="ins" class="form-select" id="unit1">
+                        <option selected value="hexa">Hexadecimal</option>
+                        <option value="binary">Binary</option>
+                        <option value="decimal">Decimal</option>
+                    </select>
+                </div>
+                <div class="form-group col">
+                    <Label for="unit2">To</Label>
+                    <select name="outs" id="outs" class="form-select" id="unit2">
+                        <option value="hexa">Hexadecimal</option>
+                        <option selected value="binary">Binary</option>
+                        <option value="decimal">Decimal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                 <Label for="x">Enter hex number</Label>
+                 <div class="input-group ">
+                    <input type="text" id="x" name="x" class="form-control form-control-lg" required autofocus>
+                    <div class="input-group__append">
+                        <span class="input-group-text span-input-text in-text">16</span>
+                    </div>
+                 </div>
+            </div>
+            <div class="form-group">
+                 <button type="button" class="btn btn-primary" onclick="convert()">= Convert</button>
+                 <button type="button" class="btn btn-secondary reset" onclick="reset()">x Reset</button>
+                 <button type="button" class="btn btn-secondary">x Swap</button>
+            </div>
+            <div class="form-group">
+                <label for="y">Binary number</label>
+                <div class="input-group">
+                    <textarea rows="2" id="y" class="form-control form-control-lg" readonly=""></textarea>
+                    <div class="input-group-append">
+                        <span class="input-group-text span-input-text out1">2</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="y2">Decimal number</label>
+                <div class="input-group">
+                    <textarea rows="2" id="y2" class="form-control form-control-lg" readonly=""></textarea>
+                    <div class="input-group-append">
+                        <span class="input-group-text span-input-text out2">10</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+<script src="./main.js"></script>
+</html>
