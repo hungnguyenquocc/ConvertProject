@@ -50,6 +50,9 @@ document.querySelector('.reset').addEventListener("click",() =>{
     $("#out-label1").text("Binary Number");
     $("#out-label2").text("Decimal Number");
     $("#input-label").text("Enter Hex Number");
+    document.querySelector(".in-text").textContent = 16;
+    document.querySelector(".out1").textContent = 2;
+    document.querySelector(".out2").textContent = 10;
 })
 
 
